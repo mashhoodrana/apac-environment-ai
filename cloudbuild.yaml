@@ -1,0 +1,34 @@
+steps:
+# Install dependencies
+- name: python:3.10
+  entrypoint: pip
+  args: ['install', '-r', 'requirements.txt', '--user']
+
+# Run tests if they exist
+- name: python:3.10
+  entrypoint: python
+  args: ['-m', 'pytest', '-xvs', './tests']
+  id: 'run-tests'
+  ignoreFailure: true
+
+# Build the container image
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '-t', 'gcr.io/$PROJECT_ID/env-analysis-api:$COMMIT_SHA', '.']
+
+# Push the container image to Container Registry
+- name: 'gcr.io/cloud-builders/docker'
+  args: ['push', 'gcr.io/$PROJECT_ID/env-analysis-api:$COMMIT_SHA']
+
+# Deploy container image to App Engine
+- name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+  entrypoint: gcloud
+  args:
+  - 'app'
+  - 'deploy'
+  - '--image-url=gcr.io/$PROJECT_ID/env-analysis-api:$COMMIT_SHA'
+  - '--quiet'
+
+images:
+- 'gcr.io/$PROJECT_ID/env-analysis-api:$COMMIT_SHA'
+
+timeout: '1600s' 
