@@ -3,8 +3,8 @@ echo ===== Google Earth Engine Authentication Setup =====
 
 :: Set the environment variable for Google Application Credentials
 echo Setting environment variable GOOGLE_APPLICATION_CREDENTIALS...
-setx GOOGLE_APPLICATION_CREDENTIALS "C:\Users\pc\Downloads\envirolens-92dd28f73786.json"
-set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\pc\Downloads\envirolens-92dd28f73786.json
+setx GOOGLE_APPLICATION_CREDENTIALS "PATH"
+set GOOGLE_APPLICATION_CREDENTIALS=PATH
 
 echo.
 echo Environment variable set to: %GOOGLE_APPLICATION_CREDENTIALS%
