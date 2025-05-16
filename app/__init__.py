@@ -1,3 +1,0 @@
-"""
-Environmental Analysis API
-""" 
