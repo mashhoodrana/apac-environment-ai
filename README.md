@@ -14,8 +14,6 @@ The platform provides analysis for:
 - NDVI (Normalized Difference Vegetation Index) for vegetation health
 - Land Surface Temperature for climate monitoring
 - Estimated Albedo for surface reflectivity analysis
-- Air Quality measurements (proxy via Aerosol Optical Depth)
-- AI-generated insights explaining the environmental conditions in simple language
 
 ## Requirements
 
@@ -225,9 +223,7 @@ For continuous deployment, consider setting up a Cloud Build trigger:
 ## Earth Engine Data Sources
 
 The platform uses the following satellite data sources:
-- Sentinel-2 MSI: Surface Reflectance (COPERNICUS/S2_SR)
-- MODIS Terra+Aqua Land Surface Temperature/Emissivity (MODIS/006/MOD11A1)
-- MODIS Terra+Aqua Aerosol Optical Depth (MODIS/006/MCD19A2_GRANULES)
+- GOOGLE EARTH ENGINE 
 
 ## AI-Powered Insights
 
