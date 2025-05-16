@@ -2,6 +2,9 @@
 
 A comprehensive platform for analyzing environmental conditions using satellite data, enhanced with AI-powered insights from Google's Gemini.
 
+✅ Frontend and model completed.
+⚠️ Backend is in development and will be deployed shortly.
+
 ## Overview
 
 This project combines:
