@@ -4,13 +4,13 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // Replace with your actual Firebase config
 const firebaseConfig = {
-  apiKey: "AIzaSyCrRxKa3h283ONk6neWpgvEy7RURXCDp6U",
-  authDomain: "envirolens.firebaseapp.com",
-  projectId: "envirolens",
-  storageBucket: "envirolens.firebasestorage.app",
-  messagingSenderId: "543503124091",
-  appId: "1:543503124091:web:8200f1bbf0eaf3e1f4c4de",
-  measurementId: "G-W0LW9632WB"
+  apiKey: "API_KEY",
+  authDomain: "AUTHORIZATION_LINK",
+  projectId: "PROJECT_ID",
+  storageBucket: "STORAGE_BUCKET",
+  messagingSenderId: "S_ID",
+  appId: "1APP_ID",
+  measurementId: "M_ID"
 };
 
 // Initialize Firebase
