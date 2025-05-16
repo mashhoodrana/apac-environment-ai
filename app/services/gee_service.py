@@ -1,3 +1,4 @@
+import os
 import ee
 import asyncio
 import logging
@@ -8,15 +9,25 @@ from ..utils import preprocessing
 logger = logging.getLogger(__name__)
 
 # Initialize Earth Engine
+# Initialize Earth Engine using service account credentials
 def initialize_earth_engine():
     try:
-        ee.Initialize()
-        logger.info("Google Earth Engine initialized successfully")
+        service_account_email = 'gee-ap@envirolens.iam.gserviceaccount.com'
+        credentials_path = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
+
+        from google.oauth2 import service_account
+        credentials = service_account.Credentials.from_service_account_file(
+            credentials_path,
+            scopes=["https://www.googleapis.com/auth/cloud-platform"]
+        )
+        ee.Initialize(credentials)
+        logger.info("Google Earth Engine initialized with service account")
         return True
     except Exception as e:
-        logger.warning("Earth Engine initialization skipped - optional for deployment")
+        logger.warning("Earth Engine initialization failed")
         logger.debug(f"Earth Engine init error: {str(e)}")
         return False
+
 
 EARTH_ENGINE_ENABLED = initialize_earth_engine()
 

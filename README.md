@@ -26,6 +26,11 @@ The platform provides analysis for:
 - Node.js 18+ (for local frontend development)
 - Python 3.10+ (for local backend development)
 
+## Colab Notebook
+To explore and test our environmental AI models interactively, check out our Google Colab notebook:
+
+👉 https://colab.research.google.com/drive/1G84mIHuly35rkdTutx2ldvLWnfkc1Aas
+
 ## Running with Docker
 
 The easiest way to run the entire application locally is using Docker Compose:

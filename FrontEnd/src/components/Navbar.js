@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { FiMenu, FiX, FiMoon, FiSun } from 'react-icons/fi';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { FiMenu, FiX, FiMoon, FiSun } from "react-icons/fi";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,9 +12,9 @@ export default function Navbar() {
 
   const toggleDarkMode = () => {
     if (darkMode) {
-      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.remove("dark");
     } else {
-      document.documentElement.classList.add('dark');
+      document.documentElement.classList.add("dark");
     }
     setDarkMode(!darkMode);
   };
@@ -25,25 +25,37 @@ export default function Navbar() {
         <div className="flex justify-between h-16">
           <div className="flex">
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="text-primary-light dark:text-white font-bold text-xl">
+              <Link
+                to="/"
+                className="text-primary-light dark:text-white font-bold text-xl"
+              >
                 APAC AI Solution
               </Link>
             </div>
             <div className="hidden sm:ml-6 sm:flex sm:space-x-8">
-              <Link to="/" className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              <Link
+                to="/"
+                className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              >
                 Home
               </Link>
-              <Link to="/ndvi" className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              <Link
+                to="/ndvi"
+                className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              >
                 NDVI
               </Link>
-              <Link to="/temperature" className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              <Link
+                to="/temperature"
+                className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              >
                 Temperature
               </Link>
-              <Link to="/albedo" className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
+              <Link
+                to="/albedo"
+                className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+              >
                 Albedo
-              </Link>
-              <Link to="/about" className="border-transparent text-gray-700 dark:text-gray-300 hover:text-primary-light dark:hover:text-white inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">
-                About
               </Link>
             </div>
           </div>
@@ -52,7 +64,11 @@ export default function Navbar() {
               onClick={toggleDarkMode}
               className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-primary-light dark:hover:text-white focus:outline-none"
             >
-              {darkMode ? <FiSun className="h-5 w-5" /> : <FiMoon className="h-5 w-5" />}
+              {darkMode ? (
+                <FiSun className="h-5 w-5" />
+              ) : (
+                <FiMoon className="h-5 w-5" />
+              )}
             </button>
           </div>
           <div className="-mr-2 flex items-center sm:hidden">
@@ -102,19 +118,16 @@ export default function Navbar() {
             >
               Albedo
             </Link>
-            <Link
-              to="/about"
-              className="block pl-3 pr-4 py-2 border-l-4 border-transparent text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 hover:border-primary-light"
-              onClick={toggleMenu}
-            >
-              About
-            </Link>
             <div className="flex items-center justify-between px-4 py-2">
               <button
                 onClick={toggleDarkMode}
                 className="p-2 rounded-full text-gray-500 dark:text-gray-400 hover:text-primary-light dark:hover:text-white focus:outline-none"
               >
-                {darkMode ? <FiSun className="h-5 w-5" /> : <FiMoon className="h-5 w-5" />}
+                {darkMode ? (
+                  <FiSun className="h-5 w-5" />
+                ) : (
+                  <FiMoon className="h-5 w-5" />
+                )}
               </button>
             </div>
           </div>

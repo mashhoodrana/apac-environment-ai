@@ -2,10 +2,12 @@
  * API Service for interacting with the backend
  */
 
-// Base URL for the API - will switch based on environment
-const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? '/api' // Use relative URL in production to avoid CORS issues
-  : 'http://localhost:8000/api';
+// Base URL for the API - using environment variable
+const API_BASE_URL =
+  process.env.REACT_APP_API_URL ||
+  (process.env.NODE_ENV === "production"
+    ? "https://envirolens.web.app/api"
+    : "http://localhost:8000/api");
 
 /**
  * Analyze environmental data for a location including model predictions
@@ -16,12 +18,18 @@ const API_BASE_URL = process.env.NODE_ENV === 'production'
  * @param {string} locationName - Optional name for the location
  * @returns {Promise<Object>} - Environmental analysis data with predictions
  */
-export const analyzeLocation = async (latitude, longitude, startDate, endDate, locationName = null) => {
+export const analyzeLocation = async (
+  latitude,
+  longitude,
+  startDate,
+  endDate,
+  locationName = null
+) => {
   try {
     const response = await fetch(`${API_BASE_URL}/analyze`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
         latitude,
@@ -35,12 +43,12 @@ export const analyzeLocation = async (latitude, longitude, startDate, endDate, l
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.detail || 'Failed to analyze location');
+      throw new Error(errorData.detail || "Failed to analyze location");
     }
 
     return await response.json();
   } catch (error) {
-    console.error('API Error:', error);
+    console.error("API Error:", error);
     throw error;
   }
 };
@@ -53,20 +61,20 @@ export const analyzeLocation = async (latitude, longitude, startDate, endDate, l
 export const getPredictions = async (locationId) => {
   try {
     const response = await fetch(`${API_BASE_URL}/predict/${locationId}`, {
-      method: 'GET',
+      method: "GET",
       headers: {
-        'Content-Type': 'application/json',
-      }
+        "Content-Type": "application/json",
+      },
     });
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.detail || 'Failed to get predictions');
+      throw new Error(errorData.detail || "Failed to get predictions");
     }
 
     return await response.json();
   } catch (error) {
-    console.error('Prediction API Error:', error);
+    console.error("Prediction API Error:", error);
     throw error;
   }
 };
@@ -79,23 +87,23 @@ export const getPredictions = async (locationId) => {
 export const getExplanation = async (predictionData) => {
   try {
     const response = await fetch(`${API_BASE_URL}/explain`, {
-      method: 'POST',
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        prediction_data: predictionData
+        prediction_data: predictionData,
       }),
     });
 
     if (!response.ok) {
       const errorData = await response.json();
-      throw new Error(errorData.detail || 'Failed to get explanation');
+      throw new Error(errorData.detail || "Failed to get explanation");
     }
 
     return await response.json();
   } catch (error) {
-    console.error('Explanation API Error:', error);
+    console.error("Explanation API Error:", error);
     throw error;
   }
 };
@@ -106,13 +114,13 @@ export const getExplanation = async (predictionData) => {
  */
 export const checkApiHealth = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL.replace('/api', '')}/health`);
+    const response = await fetch(`${API_BASE_URL.replace("/api", "")}/health`);
     if (!response.ok) {
-      throw new Error('API health check failed');
+      throw new Error("API health check failed");
     }
     return await response.json();
   } catch (error) {
-    console.error('Health Check Error:', error);
+    console.error("Health Check Error:", error);
     throw error;
   }
-}; 
+};

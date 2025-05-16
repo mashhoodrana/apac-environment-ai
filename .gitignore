@@ -15,10 +15,8 @@ ENV/
 
 # Environment files and credentials
 .env
-*.env
 .env.*
-.env-*
-.ee_token
+*.env
 *.key
 *.pem
 *.cert
@@ -26,8 +24,8 @@ ENV/
 *.pfx
 *.crt
 *.cer
-*.der
 *.priv
+.ee_token
 
 # Secrets and configuration files
 *.credentials.json
@@ -40,12 +38,19 @@ ENV/
 *.config.json
 *config*.json
 
-# IDE specific files
+# Firebase and app-specific
+firebase-debug.log
+firebase.json
+app/
+app.yaml
+
+# IDE and OS
 .idea/
 .vscode/
 *.swp
 *.swo
-
-# OS specific files
 .DS_Store
 Thumbs.db
+
+# Notebooks (checkpoints)
+.ipynb_checkpoints/
