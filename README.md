@@ -52,8 +52,7 @@ docker-compose down
 ```
 
 The application will be available at:
-- Frontend: http://localhost
-- API: http://localhost:8000
+- Frontend: https://envirolens.web.app/
 
 ## Running locally for development
 
